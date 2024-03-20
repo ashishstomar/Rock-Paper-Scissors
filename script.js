@@ -27,23 +27,23 @@ function playRound(playerSelection, computerSelection) {
 //function loop to play five rounds with score tracking for both players
 function playGame() {
 
-  for ( let i = 0; i <= 4; i++) {
-    const playerSelection = prompt("Your turn. Rock, Paper, Scissor ?");
-    const computerSelection = getComputerChoice();
-    result = (playRound(playerSelection, computerSelection));
-
-    if(result == "It's a TIE!") {
-      console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-    }
-    else if (result == "You Won!") {
-      humanScore++;
-      console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-    }  
-    else {
-      computerScore++;
-      console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-    }
-  }
+  //for ( let i = 0; i <= 4; i++) {
+  //  const playerSelection = prompt("Your turn. Rock, Paper, Scissor ?");
+  //  const computerSelection = getComputerChoice();
+  //  result = (playRound(playerSelection, computerSelection));
+//
+  //  if(result == "It's a TIE!") {
+  //    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
+  //  }
+  //  else if (result == "You Won!") {
+  //    humanScore++;
+  //    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
+  //  }  
+  //  else {
+  //    computerScore++;
+  //    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
+  //  }
+  //}
 }
 
 //initialize score tracking global scope variables
@@ -63,3 +63,5 @@ else if (computerScore < humanScore) {
 else {
   console.log("It's a TIE! Final Scores -> You: " + humanScore + " Computer: " + computerScore);
 }
+
+const buttons = document.querySelectorAll("button");
