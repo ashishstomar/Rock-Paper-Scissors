@@ -64,4 +64,5 @@ else {
   console.log("It's a TIE! Final Scores -> You: " + humanScore + " Computer: " + computerScore);
 }
 
-const buttons = document.querySelectorAll("button");
+const btn = document.querySelectorAll("#button");
+btn.onclick = () => alert("Hello World!");
