@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="container">
-        <button id ="button1">Rock</button>
-        <button id ="button2">Paper</button>
-        <button id ="button3">Scissor</button>
+    <h1 id="heading">Rock Paper & Scissor</h1>
+    <p>Click the buttons below to play!</p>
+    <div class="container">
+        <button class="btn" id ="button1">✊</button>
+        <button class="btn" id ="button2">✋</button>
+        <button class="btn" id ="button3">✌️</button>
     </div>
-    <div class ="scores">Scores are: </div>    
+    <div class ="leaderboard">
+        <h2 class ="roundCount"></h2>
+        <button id ="resetbtn">Play Again</button>
+        <div class ="scores"></div>
+    </div>
+
 </body>
 </html>
