@@ -2,7 +2,12 @@
 
 body {
     font-family: poppins;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #414141;
+    font-weight: bold;
 }
 
 #heading {
@@ -11,12 +16,8 @@ body {
 
 
 }
-.scores {
-    background-color: grey;
+.leftCard, .rightCard {
     color : yellow;
-    height : 150px;
-    padding : 15px;
-    margin-top : 20px;
     font-weight : bold;
 }
 
@@ -27,24 +28,56 @@ body {
     gap: 30px;
 }
 
-.btn, #resetbtn {
+.btn {
     font-size: 3rem;
     border-radius: 16px;
     padding: 12px;
-    background-color: rgb(102, 131, 219);
+    background-color: #080078;    
+    cursor: pointer;
+    -webkit-transform: scaleX(2);
+    transform: scaleX(-1);
+    transition: background-color 0.5s ease;
 }
 
 .btn:hover {
-    background-color: rgb(29, 46, 120);
+    background-color: rgb(68, 7, 251);
+    transform: rotate(90deg);   
 }
 
-#resetbtn {
-    font-size: 12px;
-    border-radius: 30px;
-    padding: 12px 20px;
-    background-color: rgb(247, 164, 164);
+.resetbtn {
+    font-size: 13px;
+    border-radius: 100px;
+    padding: 14px 20px;
+    background-color: rgb(255, 251, 0);
+    font-weight: 900;
+    margin: 30px;
+    transition: background-color 0.5s ease;
 }
-#resetbtn:hover {
-    background-color: brown;
+.resetbtn:hover {
+    background-color: rgb(128, 255, 108);
 }
 
+.scoreCard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.leftCard { 
+    font-size: small;
+    width: 310px;
+    color: rgb(13, 255, 207);
+}
+
+.intro {
+    color: aquamarine;
+    text-align: center;
+    margin-left: 150px;
+    font-weight: lighter;
+}
+
+.tagline {
+    color: rgb(206, 204, 204);
+    margin-bottom: 20px;
+}
