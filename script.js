@@ -1,97 +1,120 @@
 // function to randomly return a word from an array
+
 function getComputerChoice() {
   let wordArray = ["rock", "paper", "scissor"];
   ranWord = wordArray[Math.floor(Math.random() * wordArray.length)];
   return ranWord;
 }
-//function take input to play single round of game
-function playRound(playerSelection, computerSelection) {
-  //let playerchoice = playerSelection.toUpperCase();
-  if ((playerSelection === "rock") && (computerSelection === "paper")) {
-    console.log("You Lose! Paper beats Rock");
-  }
-  else if ((playerSelection === "scissor") && (computerSelection === "rock")) {
-    console.log( "You Lose! Rock crushed Scissor");
-  }
-  else if ((playerSelection === "paper") && (computerSelection === "scissor")) {
-    console.log ("You Lose! Scissor cuts Paper");
-  }
-  else if (playerSelection === computerSelection) {
-    console.log("It's a TIE!");
-  }
-  else {
-    console.log( "You Won!");
-  }
-}
 
-
-/*
-
-//function loop to play five rounds with score tracking for both players
-function playGame() {
-for ( let i = 0; i <= 4; i++) {
-  const playerSelection = prompt("Your turn. Rock, Paper, Scissor ?");
-  const computerSelection = getComputerChoice();
-  result = (playRound(playerSelection, computerSelection))
-  if(result == "It's a TIE!") {
-    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-  }
-  else if (result == "You Won!") {
-    humanScore++;
-    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-  }  
-  else {
-    computerScore++;
-    console.log(result + " Computer: " + computerSelection + ", You: " + playerSelection + ", Score is " + computerScore + " - " + humanScore);
-  }
-}
-}
-
-//initialize score tracking global scope variables
 let humanScore = 0;
-let computerScore = 0;
+let computerScore = 0; 
 
-//invoke function
-playGame()
+function playGame(playerSelection) {
+  if(humanScore <= 4 && computerScore <= 4) {
+    const computerSelection = getComputerChoice();
 
-//conditional statements to decide winner and scores
-if (computerScore > humanScore) {
-  console.log("You Lose! Final Scores -> You: " + humanScore + " Computer: " + computerScore);
+    if ((playerSelection === "rock") && (computerSelection === "paper")) {
+      computerScore++;
+      const p = document.createElement('p');
+      p.textContent = " You Lose! Paper beats Rock. Computer: " + computerSelection + ", You: " + playerSelection;
+      leftCard.appendChild(p)
+    }
+    else if ((playerSelection === "scissor") && (computerSelection === "rock")) {
+       computerScore++;
+       const p = document.createElement('p');
+       p.textContent = "You Lose! Rock crushed Scissor. Computer: " + computerSelection + ", You: " + playerSelection;
+       leftCard.appendChild(p)
+    }
+    else if ((playerSelection === "paper") && (computerSelection === "scissor")) {
+      computerScore++;
+      const p = document.createElement('p');
+      p.textContent = "You Lose! Scissor cuts Paper. Computer: " + computerSelection + ", You: " + playerSelection;
+      leftCard.appendChild(p)
+      
+    }
+    else if (playerSelection === computerSelection) {
+      const p = document.createElement('p');
+      p.textContent = "It's a TIE! Computer: " + computerSelection + ", You: " + playerSelection; 
+      leftCard.appendChild(p)
+    }
+    else {
+      humanScore++;
+      const p = document.createElement('p');
+      p.textContent = "You Won! Computer: " + computerSelection + ", You: " + playerSelection; 
+      leftCard.appendChild(p)
+    }
+  }
+  scoreDisplay()
+  resetGame()
+  scoreCard.removeChild(intro)
+} 
+
+
+function winner() {
+  
+  if (computerScore > humanScore) {
+    const p = document.createElement('p');
+    p.textContent = "You Lose!";
+    p.classList.add("result");
+    p.style.color = 'red';
+    p.style.fontSize = '35px';
+    rightCard.appendChild(p);
+  }
+  else {
+    const p = document.createElement('p');
+    p.textContent = "You won!";
+    p.classList.add("result");
+    p.style.color = 'green';
+    p.style.fontSize = '35px'
+    rightCard.appendChild(p);
+  }
 }
-else if (computerScore < humanScore) {
-  console.log("You won! Final Scores -> You: " + humanScore + " Computer: " + computerScore) ;
+
+function resetGame() {
+  if (humanScore === 5 || computerScore === 5) {
+    winner();
+    const container = document.querySelector(".container");
+    const resetbtn = document.createElement("button");
+    resetbtn.classList.add("resetbtn");
+    resetbtn.textContent = "Play again ↻";
+    container.appendChild(resetbtn);
+
+    resetbtn.addEventListener('click', function(){
+    window.location.reload();
+    return false;});
+
+    container.removeChild(btnScissor);
+    container.removeChild(btnPaper);
+    container.removeChild(btnRock);
+    body.removeChild(tagline);
+  }
+  
+}  
+const body =document.querySelector("body");
+const tagline = document.querySelector(".tagline")
+const scoreCard = document.querySelector(".scoreCard");
+const intro = document.querySelector(".intro");
+const leftCard = document.querySelector(".leftCard");
+const rightCard = document.querySelector(".rightCard")
+
+
+const btnRock = document.querySelector("#btnRock");
+btnRock.addEventListener("click", () => playGame("rock"));
+
+const btnPaper = document.querySelector("#btnPaper");
+btnPaper.addEventListener("click", () => playGame("paper"));
+
+const btnScissor = document.querySelector("#btnScissor");
+btnScissor.addEventListener("click", () => playGame("scissor"));
+  
+
+
+function scoreDisplay() {
+  let computerScoreCount = document.querySelector(".computerScoreCount");
+  computerScoreCount.textContent = `🤖 Computer: ${computerScore}`;
+  rightCard.appendChild(computerScoreCount);
+
+  let humanScoreCount = document.querySelector(".humanScoreCount");
+  humanScoreCount.textContent = `👨‍💼 Human: ${humanScore}`;
+  rightCard.appendChild(humanScoreCount);
 }
-else {
-  console.log("It's a TIE! Final Scores -> You: " + humanScore + " Computer: " + computerScore);
-}
-
-*/
-
-
-const body = document.querySelector("body")
-body.style.backgroundColor = "#414141";
-
-const heading = document.createElement("h1");
-heading.textContent = "ROCK-PAPER-SCISSOR";
-heading.style.color = "white";
-body.insertBefore(heading, container);
-
-
-const scores = document.querySelector(".scores");
-scores.style.backgroundColor = "grey";
-scores.style.color = "yellow";
-scores.style.height = "150px";
-scores.style.padding = "15px";
-scores.style.marginTop = "20px";
-scores.style.fontWeight = "bold";
-
-
-const btn1 = document.querySelector("#button1");
-btn1.addEventListener("click", () => playRound("rock", getComputerChoice()));
-
-
-const btn2 = document.querySelector("#button2")
-btn2.addEventListener("click", () => playRound("paper", getComputerChoice()));
-
-const btn3 = document.querySelector("#button3")
-btn3.addEventListener("click", () => playRound("scissor", getComputerChoice()));
