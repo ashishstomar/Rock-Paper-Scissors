@@ -115,6 +115,6 @@ function scoreDisplay() {
   rightCard.appendChild(computerScoreCount);
 
   let humanScoreCount = document.querySelector(".humanScoreCount");
-  humanScoreCount.textContent = `👨‍💼 Human: ${humanScore}`;
+  humanScoreCount.textContent = `👨‍💼 You: ${humanScore}`;
   rightCard.appendChild(humanScoreCount);
 }
