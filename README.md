@@ -1,5 +1,12 @@
 # Rock-Paper-Scissors
-An implementation of grade-school classic “rock paper scissors.
- Play the game from the browser console.
+This is a fun implementation of the grade-school classic "rock paper scissors" game, built using HTML, CSS, and JavaScript with a user interface.
 
- To open the console in Chrome, use this keyboard shortcut: "Cmd + Option + J" (on a Mac) or "Ctrl +Shift +J" (on Windows). As an alternative, you can right-click on the webpage and click "Inspect" to open the developer console.
+How to Play
+Open the deployed website or index.html file in your web browser.
+Click on one of the buttons to choose your move: rock, paper, or scissors.
+The computer will randomly select its move.
+The winner of each round will be determined according to the classic rules: rock beats scissors, scissors beats paper, paper beats rock.
+The first player to reach 5 points wins the game!
+Enjoy playing and may the odds be ever in your favor!
+
+ 
