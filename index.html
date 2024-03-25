@@ -7,17 +7,21 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 id="heading">Rock Paper & Scissor</h1>
-    <p>Click the buttons below to play!</p>
+    <h1 id="heading">Rock Paper & Scissors</h1>
+    <p class ="tagline">Choose your weapon!</p>
     <div class="container">
-        <button class="btn" id ="button1">✊</button>
-        <button class="btn" id ="button2">✋</button>
-        <button class="btn" id ="button3">✌️</button>
+        <button class= "btn" id ="btnRock">✊</button>
+        <button class= "btn" id ="btnPaper">✋</button>
+        <button class= "btn" id ="btnScissor">✌️</button>    
     </div>
-    <div class ="leaderboard">
-        <h2 class ="roundCount"></h2>
-        <button id ="resetbtn">Play Again</button>
-        <div class ="scores"></div>
+ 
+    <div class ="scoreCard">
+        <p class="intro">Let's kick this game off by smacking that button and pickin' one of the three weapons. The first one to hit 5 points takes the cake in this showdown between you and the computer. Think you got the chops to come out on top?</p>
+        <div class ="leftCard"></div>
+        <div class ="rightCard">
+            <p class="computerScoreCount"></p>
+            <p class="humanScoreCount"></p>
+        </div>
     </div>
 
 </body>
